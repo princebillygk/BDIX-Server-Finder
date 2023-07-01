@@ -1,0 +1,46 @@
+@import "./variables";
+
+.app.dark {
+  background-color: $eerie-black;
+  color: $snow;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $fire-brick;
+  }
+
+  header {
+    h1 {
+      color: $air-force-blue;
+    }
+  }
+
+  button {
+    background-color: $air-force-blue;
+    color: $snow;
+    &:hover {
+      color: $air-force-blue;
+      background-color: $snow;
+    }
+    &:active {
+      color: $fire-brick;
+      background-color: $snow;
+    }
+  }
+
+  .card {
+    box-shadow: none;
+  }
+
+  label.darkModeBtn {
+    background-color: #000;
+    &:hover {
+      color: #000;
+      background-color: white;
+    }
+  }
+}

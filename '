@@ -19,7 +19,7 @@ function IndexPopup() {
               setIsDarkMode(!isDarkMode)
             }}
           />
-          {isDarkMode ? "☀️ Switch to light mode" : "🌑 Switch to dark mode"}
+          {isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         </label>
         <hr />
       </header>

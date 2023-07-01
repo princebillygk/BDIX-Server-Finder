@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
-  color: $eerie-black;
+  transition: 0.1s color ease-in, 0.5s background-color ease-in;
 }
 
 h1,
@@ -20,7 +20,10 @@ h6 {
 
 body {
   width: 250px;
-  margin: 10px;
+}
+
+.app {
+  padding: 10px;
   background-color: $snow;
 }
 
@@ -78,17 +81,22 @@ button {
   }
 }
 
-.darkModeBtn {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 5px;
+label.darkModeBtn {
+  display: inline-block;
+  user-select: none;
+  padding: 5px 10px;
   border-radius: 10px;
   background-color: #eee;
+
+  &:hover {
+    background-color: #000;
+    color: white;
+  }
+
   input {
     margin-right: 3px;
   }
-  label,
   input {
-    display: block;
+    display: none;
   }
 }
