@@ -18,8 +18,7 @@ function IndexPopup() {
         <h2>Find BDIX servers</h2>
         <p>Search available FTP, IP TV and other servers in your network.</p>
         <div className="btn-group">
-          <button>All</button>
-          <button>Custom</button>
+          <button>Find all</button>
           <button>Custom</button>
         </div>
       </div>
@@ -28,7 +27,6 @@ function IndexPopup() {
         <p>Find available websites from lists created by the community.</p>
         <div className="btn-group">
           <button>Click here</button>
-          <button>Custom</button>
         </div>
       </div>
 
