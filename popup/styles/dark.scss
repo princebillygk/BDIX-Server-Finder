@@ -3,6 +3,9 @@
 .app.dark {
   background-color: $eerie-black;
   color: $snow;
+  * {
+    box-shadow: none;
+  }
 
   h1,
   h2,
@@ -21,6 +24,7 @@
 
   button {
     background-color: $air-force-blue;
+    user-select: none;
     color: $snow;
     &:hover {
       color: $air-force-blue;
@@ -30,10 +34,6 @@
       color: $fire-brick;
       background-color: $snow;
     }
-  }
-
-  .card {
-    box-shadow: none;
   }
 
   label.darkModeBtn {
