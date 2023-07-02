@@ -52,4 +52,12 @@
   .loader {
     color: $snow;
   }
+
+  .page {
+    & > header {
+      h2 {
+        color: $air-force-blue;
+      }
+    }
+  }
 }

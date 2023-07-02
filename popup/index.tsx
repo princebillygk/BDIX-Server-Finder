@@ -32,7 +32,7 @@ function IndexPopup() {
         <MemoryRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/search" element={<WebDirectoryPage />} />
+            <Route path="/directory" element={<WebDirectoryPage />} />
           </Routes>
         </MemoryRouter>
       </main>

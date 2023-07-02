@@ -16,23 +16,24 @@ export interface WebDirectoryProps {
 
 export default function WebDirectory({ query }) {
   const { servers, status } = useWebServers(query)
-  console.log(servers)
 
   switch (status) {
     case "success":
       return (
-        <table>
-          <tr>
-            <th>serial</th>
-            <th>name</th>
-          </tr>
-          {servers.map((s, idx) => (
-            <tr key={s.id}>
-              <td>{idx + 1}</td>
-              <td>{s.url}</td>
-            </tr>
-          ))}
-        </table>
+        <div>
+          Collection of BDIX servers:
+          <table className="scrollable">
+            <tbody>
+              {servers.map((s, idx) => (
+                <tr key={s.id}>
+                  <td>{s.url}</td>
+                  <td>lorem</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button>Start Search</button>
+        </div>
       )
     case "error":
       return <p>Something went wrong</p>
