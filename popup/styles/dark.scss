@@ -43,4 +43,13 @@
       background-color: white;
     }
   }
+
+  .loader,
+  .loader:before,
+  .loader:after {
+    background: $snow;
+  }
+  .loader {
+    color: $snow;
+  }
 }

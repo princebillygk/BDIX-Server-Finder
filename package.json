@@ -5,7 +5,7 @@
   "description": "This program assists in locating FTP and TV servers within your ISP. This tool can also be used to see if certain websites are accessible through your network.",
   "author": "princebillygk",
   "scripts": {
-    "dev": "plasmo dev",
+    "dev": "NODE_ENV=development plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package"
   },
@@ -13,7 +13,8 @@
     "normalize.css": "^8.0.1",
     "plasmo": "0.77.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.4",

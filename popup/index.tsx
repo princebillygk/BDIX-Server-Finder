@@ -1,4 +1,8 @@
 import { useState } from "react"
+import { MemoryRouter, Route, Routes } from "react-router-dom"
+
+import HomePage from "./pages/home"
+import WebDirectoryPage from "./pages/web-directory"
 
 import "./styles/dark.scss"
 import "./styles/global.scss"
@@ -15,7 +19,7 @@ function IndexPopup() {
             type="checkbox"
             name="isDarkMode"
             id="isDarkMode"
-            onChange={(e) => {
+            onChange={() => {
               setIsDarkMode(!isDarkMode)
             }}
           />
@@ -23,21 +27,15 @@ function IndexPopup() {
         </label>
         <hr />
       </header>
-      <div className="card">
-        <h2>Find BDIX servers</h2>
-        <p>Search available FTP, IP TV and other servers in your network.</p>
-        <div className="btn-group">
-          <button>Find all</button>
-          <button>Custom</button>
-        </div>
-      </div>
-      <div className="card">
-        <h2>Find other Websites</h2>
-        <p>Find available websites from lists created by the community.</p>
-        <div className="btn-group">
-          <button>Click here</button>
-        </div>
-      </div>
+
+      <main>
+        <MemoryRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<WebDirectoryPage />} />
+          </Routes>
+        </MemoryRouter>
+      </main>
 
       <footer>
         Made with love{" "}
