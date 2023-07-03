@@ -36,6 +36,15 @@
     }
   }
 
+  button:disabled {
+    background-color: darken($air-force-blue, 4);
+    color: darken($snow, 4);
+    &:hover {
+      background-color: darken($air-force-blue, 4);
+      color: darken($snow, 4);
+    }
+  }
+
   label.darkModeBtn {
     background-color: #000;
     &:hover {

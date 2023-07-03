@@ -1,0 +1,86 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@for $size from 1 through 5 {
+  .p-#{$size} {
+    padding: $size * 0.5em;
+  }
+
+  .pt-#{$size} {
+    padding-top: $size * 0.5em;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: $size * 0.5em;
+  }
+
+  .pl-#{$size} {
+    padding-left: $size * 0.5em;
+  }
+
+  .pr-#{$size} {
+    padding-right: $size * 0.5em;
+  }
+
+  .px-#{$size} {
+    padding-left: $size * 0.5em;
+    padding-right: $size * 0.5em;
+  }
+
+  .py-#{$size} {
+    padding-top: $size * 0.5em;
+    padding-bottom: $size * 0.5em;
+  }
+
+  .m-#{$size} {
+    padding: $size * 0.5em;
+  }
+
+  .mt-#{$size} {
+    margin-top: $size * 0.5em;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: $size * 0.5em;
+  }
+
+  .ml-#{$size} {
+    margin-left: $size * 0.5em;
+  }
+
+  .mr-#{$size} {
+    margin-right: $size * 0.5em;
+  }
+
+  .mx-#{$size} {
+    margin-left: $size * 0.5em;
+    margin-right: $size * 0.5em;
+  }
+
+  .my-#{$size} {
+    margin-top: $size * 0.5em;
+    margin-bottom: $size * 0.5em;
+  }
+}
+
+table {
+  width: 100%;
+  td {
+    border-bottom: solid 1px $platinum;
+  }
+  &.scrollable {
+    tbody {
+      display: block;
+      overflow-y: scroll;
+    }
+  }
+}
+
+.scrollable {
+  border: inset 1.5px $air-force-blue;
+  display: block;
+  overflow-y: scroll;
+}
