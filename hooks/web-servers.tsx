@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
+
+import { serverSelectionReducer } from "~reducers/selection"
 
 import { Server } from "../types/server"
 
@@ -9,7 +11,7 @@ async function getServers(query: GetServerQuery): Promise<Server[]> {
 }
 
 export function useWebServers(query: GetServerQuery) {
-  const [servers, setServers] = useState<Server[]>([])
+  const [servers, dispatch] = useReducer(serverSelectionReducer, [])
   const [status, setStatus] = useState<"success" | "error" | "loading">(
     "loading"
   )
@@ -21,7 +23,10 @@ export function useWebServers(query: GetServerQuery) {
         if (ignore) {
           return
         }
-        setServers(ss)
+        dispatch({
+          type: "set",
+          servers: ss
+        })
         setStatus("success")
       })
       .catch((e) => {
@@ -36,5 +41,5 @@ export function useWebServers(query: GetServerQuery) {
     }
   }, [query])
 
-  return { servers, status }
+  return { servers, status, dispatch }
 }
