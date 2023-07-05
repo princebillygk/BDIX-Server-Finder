@@ -20,7 +20,7 @@ h6 {
 }
 
 body {
-  width: 300px;
+  width: 400px;
 }
 
 .app {
@@ -64,6 +64,21 @@ button:disabled {
     color: darken($air-force-blue, 4);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   }
+}
+
+.link {
+  color: $fire-brick;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2em 1em;
+  background-color: $fire-brick;
+  color: $snow;
+  font-weight: 600;
+  border-radius: 5px;
 }
 
 .card {
@@ -126,4 +141,24 @@ label.darkModeBtn {
       color: $fire-brick;
     }
   }
+}
+
+table {
+  width: 100%;
+  td {
+    border-bottom: solid 1px $platinum;
+    padding: 0.2em 0;
+  }
+  &.scrollable {
+    tbody {
+      display: block;
+      overflow-y: scroll;
+    }
+  }
+}
+
+.scrollable {
+  border: inset 1.5px $air-force-blue;
+  display: block;
+  overflow-y: scroll;
 }

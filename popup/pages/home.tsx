@@ -1,27 +1,56 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function HomePage() {
+  const navigate = useNavigate()
   return (
     <>
       <div className="card">
         <h2>BDIX servers</h2>
         <p>FTP, IP TV and other servers in your network.</p>
-        <div className="btn-group">
-          <Link to="/directory" state={{ title: "All BDIX Servers" }}>
-            <button>All</button>
-          </Link>
-          <Link to="/directory" state={{ title: "~BDIX Servers" }}>
-            <button>Custom</button>
-          </Link>
+        <div className="center pt-3">
+          <button
+            onClick={() =>
+              navigate("/directory", {
+                state: {
+                  title: "All BDIX Servers"
+                }
+              })
+            }>
+            Browse
+          </button>
         </div>
       </div>
       <div className="card">
-        <h2>Other Websites</h2>
-        <p>Websites from lists created by the community.</p>
-        <div className="btn-group">
-          <button onClick={() => console.log(process.env.PLASMO_PUBLIC_API)}>
-            Click here
-          </button>
+        <h2>Torrents</h2>
+        <p>
+          Search and download Movies, Games, Softwares and anything else you
+          want.
+        </p>
+        <div className="center pt-3">
+          <div className="btn-group">
+            <button
+              onClick={() =>
+                navigate("/directory", {
+                  state: {
+                    title: "All BDIX Servers"
+                  }
+                })
+              }>
+              {" "}
+              Search Torrents
+            </button>
+
+            <button
+              onClick={() =>
+                navigate("/directory", {
+                  state: {
+                    title: "All BDIX Servers"
+                  }
+                })
+              }>
+              Torrent Sites
+            </button>
+          </div>
         </div>
       </div>
     </>

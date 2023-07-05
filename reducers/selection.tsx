@@ -3,7 +3,7 @@ import { Server } from "../types/server"
 type ServerSelectionReducerAction =
   | {
       type: "select" | "deselect"
-      id: number
+      id: string
     }
   | {
       type: "clearSelection" | "selectAll"

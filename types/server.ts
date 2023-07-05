@@ -1,5 +1,6 @@
 export type Server = {
-  id: number
+  id: string
   url: string
+  category: string
   status?: boolean
 }

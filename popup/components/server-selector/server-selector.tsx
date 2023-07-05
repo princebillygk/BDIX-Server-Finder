@@ -5,8 +5,8 @@ import { Server } from "../../../types/server"
 
 interface ServerSelectorProps {
   servers: Server[]
-  onSelect: (id: number) => void
-  onDeselect: (id: number) => void
+  onSelect: (id: string) => void
+  onDeselect: (id: string) => void
   onClearSelection: () => void
   onSelectAll: () => void
 }
@@ -18,10 +18,13 @@ export default function ServerSelector({
   onClearSelection,
   onSelectAll
 }: ServerSelectorProps) {
+  console.log(servers)
   return (
     <div>
-      <button onClick={onSelectAll}>Select All</button>
-      <button onClick={onClearSelection}>Deselect All</button>
+      <div className="btn-group center">
+        <button onClick={onSelectAll}>Select All</button>
+        <button onClick={onClearSelection}>Deselect All</button>
+      </div>
       <div className="scrollable" style={{ height: "150px" }}>
         <table>
           <tbody>
@@ -39,9 +42,13 @@ export default function ServerSelector({
                   />
                 </td>
                 <td>
-                  <label htmlFor={s.url}>{s.url}</label>
+                  <label className="link" htmlFor={s.url}>
+                    {s.url}
+                  </label>
                 </td>
-                <td>lorem</td>
+                <td className="ta-right">
+                  <span className="tag">{s.category}</span>
+                </td>
               </tr>
             ))}
           </tbody>

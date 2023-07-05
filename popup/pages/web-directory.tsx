@@ -1,22 +1,21 @@
-import { Suspense, useEffect, useReducer, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { useWebServers } from "../../hooks/web-servers"
-import { serverSelectionReducer } from "../../reducers/selection"
-import { Server } from "../../types/server"
 import ServerSelector from "../components/server-selector/server-selector"
 import SpinnerCard from "../components/spinner/spinner"
 
 export default function WebDirectoryPage() {
   const location = useLocation()
+  const navigate = useNavigate()
+
   const { servers, status, dispatch } = useWebServers(location.state.query)
   const selectedServers = servers.filter((s) => s.status === true)
 
-  function handleSelect(id: number) {
+  function handleSelect(id: string) {
     dispatch({ type: "select", id })
   }
 
-  function handleDeselect(id: number) {
+  function handleDeselect(id: string) {
     dispatch({ type: "deselect", id })
   }
 
@@ -65,8 +64,14 @@ export default function WebDirectoryPage() {
             {...((status !== "success" || selectedServers.length < 1) && {
               disabled: true
             })}
-            onClick={() => console.log(selectedServers)}>
-            Start Search
+            onClick={() => {
+              navigate("/", {
+                state: {
+                  servers: servers.filter((s) => s.status === true)
+                }
+              })
+            }}>
+            Find availability
           </button>
         </div>
       </div>
