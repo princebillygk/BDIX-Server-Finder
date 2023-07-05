@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { useWebServers } from "../../hooks/web-servers"
+import InnerPageLayout from "../components/Layouts/InnerPageLayout"
 import ServerSelector from "../components/server-selector/server-selector"
 import SpinnerCard from "../components/spinner/spinner"
 
@@ -50,13 +51,7 @@ export default function WebDirectoryPage() {
   }
 
   return (
-    <div className="page">
-      <header>
-        <Link to={"/"} replace>
-          <button>Back</button>
-        </Link>
-        <h2>{location.state.title ?? "Server list"}</h2>
-      </header>
+    <InnerPageLayout title={location.state.title ?? "Server list"}>
       <div className="card">
         {content}
         <div className="center pt-4">
@@ -65,7 +60,7 @@ export default function WebDirectoryPage() {
               disabled: true
             })}
             onClick={() => {
-              navigate("/", {
+              navigate("/server-list", {
                 state: {
                   servers: servers.filter((s) => s.status === true)
                 }
@@ -75,6 +70,6 @@ export default function WebDirectoryPage() {
           </button>
         </div>
       </div>
-    </div>
+    </InnerPageLayout>
   )
 }

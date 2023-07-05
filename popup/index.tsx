@@ -2,6 +2,7 @@ import { useState } from "react"
 import { MemoryRouter, Route, Routes } from "react-router-dom"
 
 import HomePage from "./pages/home"
+import ServerListPage from "./pages/server-list"
 import WebDirectoryPage from "./pages/web-directory"
 
 import "./styles/dark.scss"
@@ -33,6 +34,7 @@ function IndexPopup() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/directory" element={<WebDirectoryPage />} />
+            <Route path="/server-list" element={<ServerListPage />} />
           </Routes>
         </MemoryRouter>
       </main>
