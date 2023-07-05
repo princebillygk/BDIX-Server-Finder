@@ -6,7 +6,9 @@ import { Server } from "../types/server"
 
 export interface GetServerQuery {}
 async function getServers(query: GetServerQuery): Promise<Server[]> {
-  const res = await fetch(`${process.env.PLASMO_PUBLIC_API}/servers/`)
+  const res = await fetch(
+    `${process.env.PLASMO_PUBLIC_API}/servers/?${crypto.randomUUID()}`
+  )
   return await res.json()
 }
 

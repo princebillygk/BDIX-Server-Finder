@@ -18,7 +18,6 @@ export default function ServerSelector({
   onClearSelection,
   onSelectAll
 }: ServerSelectorProps) {
-  console.log(servers)
   return (
     <div>
       <div className="btn-group center">

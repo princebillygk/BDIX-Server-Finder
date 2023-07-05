@@ -33,13 +33,16 @@ export default function WebDirectoryPage() {
   switch (status) {
     case "success":
       content = (
-        <ServerSelector
-          servers={servers}
-          onSelect={handleSelect}
-          onDeselect={handleDeselect}
-          onClearSelection={handleClearSelection}
-          onSelectAll={handleSetSelection}
-        />
+        <>
+          <p className="ta-center my-1">Found {servers.length} servers</p>
+          <ServerSelector
+            servers={servers}
+            onSelect={handleSelect}
+            onDeselect={handleDeselect}
+            onClearSelection={handleClearSelection}
+            onSelectAll={handleSetSelection}
+          />
+        </>
       )
       break
     case "error":
