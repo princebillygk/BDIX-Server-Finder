@@ -4,3 +4,7 @@ export type Server = {
   category: string
   status?: boolean
 }
+
+export type ServerResponseResult = Server & {
+  responseTimeInMs: number
+}

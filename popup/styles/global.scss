@@ -1,6 +1,7 @@
 @import "../../node_modules/normalize.css/normalize";
 @import "./variables";
 @import "./utility";
+@import "../../node_modules/react-tabs/style/react-tabs.scss";
 
 * {
   margin: 0;
@@ -165,4 +166,12 @@ table {
 
 progress {
   height: 20px;
+}
+
+.react-tabs__tab {
+  font-weight: bold;
+}
+
+a {
+  color: $air-force-blue;
 }

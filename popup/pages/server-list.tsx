@@ -1,22 +1,21 @@
+import { Server } from "http"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { useImmer } from "use-immer"
 
-import InnerPageLayout from "~popup/components/Layouts/InnerPageLayout"
+import { ServerDirectory } from "~popup/components/server-directory/server-directory"
+import { ServerResponseResult } from "~types/server"
 
-type ServerResponseResult = {
-  url: string
-  responseTimeInMs: number
-}
+import InnerPageLayout from "../components/Layouts/InnerPageLayout"
+import ServerFinder from "../components/server-finder/server-finder"
 
 export default function ServerListPage() {
   const servers = useLocation().state.servers
-  const [progressValue, setProgressValue] = useState(0)
+  const [numberOfServerChecked, setNumberOfServerChecked] = useState(0)
   const [found, updateFound] = useImmer<Record<string, ServerResponseResult[]>>(
     {}
   )
   const numberOfFound = Object.values(found).reduce((p, c) => p + c.length, 0)
-  console.log(found)
 
   const findAvailability = async function () {
     for (const s of servers ?? []) {
@@ -26,7 +25,7 @@ export default function ServerListPage() {
         const endTime = performance.now()
         if (result.status === 200) {
           const result = {
-            url: s.url,
+            ...s,
             responseTimeInMs: Math.round(endTime - startTime)
           }
           updateFound((draft) => {
@@ -41,37 +40,36 @@ export default function ServerListPage() {
         }
       } catch {
       } finally {
-        setProgressValue((p) => p + 1)
+        setNumberOfServerChecked((p) => p + 1)
       }
     }
   }
 
   useEffect(() => {
-    if (progressValue === 0) {
-      setProgressValue(0)
+    if (numberOfServerChecked === 0) {
+      setNumberOfServerChecked(0)
       updateFound((draft) => (draft = {}))
       findAvailability()
     }
   }, [])
 
+  let content: React.JSX.Element
+
+  if (numberOfServerChecked === servers.length) {
+    content = <ServerDirectory servers={found}></ServerDirectory>
+  } else {
+    content = (
+      <ServerFinder
+        numberOfFound={numberOfFound}
+        numberOfServer={servers.length}
+        numberOfServerChecked={numberOfServerChecked}
+      />
+    )
+  }
+
   return (
     <InnerPageLayout title="Server Lists">
-      <div className="center py-5">
-        <div>
-          <p className="ta-center">Checking availability of servers</p>
-          <div className="center m-2">
-            <progress
-              style={{ width: "200px" }}
-              value={progressValue}
-              max={servers.length}
-            />
-          </div>
-          <p className="ta-center">
-            Completed {progressValue}/{servers.length}
-          </p>
-          <p className="ta-center">{numberOfFound} Items found</p>
-        </div>
-      </div>
+      <>{content}</>
     </InnerPageLayout>
   )
 }

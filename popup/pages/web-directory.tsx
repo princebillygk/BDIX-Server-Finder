@@ -1,5 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
+import { ServerDirectory } from "~popup/components/server-directory/server-directory"
+
 import { useWebServers } from "../../hooks/web-servers"
 import InnerPageLayout from "../components/Layouts/InnerPageLayout"
 import ServerSelector from "../components/server-selector/server-selector"

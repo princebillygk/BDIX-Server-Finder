@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 
 export default function HomePage() {
   const navigate = useNavigate()
