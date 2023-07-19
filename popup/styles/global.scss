@@ -175,3 +175,8 @@ progress {
 a {
   color: $air-force-blue;
 }
+
+input[type="text"],
+input[type="search"] {
+  width: 100%;
+}

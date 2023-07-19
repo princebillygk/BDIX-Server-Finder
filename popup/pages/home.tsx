@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom"
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -11,7 +10,7 @@ export default function HomePage() {
         <div className="center pt-3">
           <button
             onClick={() =>
-              navigate("/directory", {
+              navigate("/bdix/directory", {
                 state: {
                   title: "All BDIX Servers"
                 }
@@ -29,26 +28,12 @@ export default function HomePage() {
         </p>
         <div className="center pt-3">
           <div className="btn-group">
-            <button
-              onClick={() =>
-                navigate("/directory", {
-                  state: {
-                    title: "All BDIX Servers"
-                  }
-                })
-              }>
+            <button onClick={() => navigate("/torrents/search")}>
               {" "}
               Search Torrents
             </button>
 
-            <button
-              onClick={() =>
-                navigate("/directory", {
-                  state: {
-                    title: "All BDIX Servers"
-                  }
-                })
-              }>
+            <button onClick={() => navigate("/torrents/search")}>
               Torrent Sites
             </button>
           </div>

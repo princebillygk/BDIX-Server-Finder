@@ -8,6 +8,10 @@ import WebDirectoryPage from "./pages/web-directory"
 import "./styles/dark.scss"
 import "./styles/global.scss"
 
+import { search } from "torrent-search-api"
+
+import TorrentSearchPage from "./pages/torrent-search"
+
 function IndexPopup() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -33,8 +37,9 @@ function IndexPopup() {
         <MemoryRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/directory" element={<WebDirectoryPage />} />
+            <Route path="/bdix/directory" element={<WebDirectoryPage />} />
             <Route path="/server-list" element={<ServerListPage />} />
+            <Route path="/torrents/search" element={<TorrentSearchPage />} />
           </Routes>
         </MemoryRouter>
       </main>
